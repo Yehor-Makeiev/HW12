@@ -115,6 +115,12 @@ def birthday(*args):
     rec = phone_book.get(name.value)
     if rec:
         return rec.days_to_birthday(name)
+    
+def find_txt(*args):
+    list_of_param = args[0].title().split()
+    search = list_of_param[0]
+    rec = phone_book
+    return rec.my_search(search)
                     
     
 
@@ -129,8 +135,8 @@ COMMANDS = {help: "help",
             hello: "hello",
             show_all: "showall",
             delete: "delete",
-            birthday: "bd"
-            # show: "show"
+            birthday: "bd",
+            find_txt: "find"
             }
 
 DATE_REGEX = r"\d{1,2}([./-])\d{1,2}\1\d{4}" 

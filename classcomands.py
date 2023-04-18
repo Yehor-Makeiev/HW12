@@ -115,7 +115,19 @@ class AddressBook(UserDict):
                break
            yield "\n".join(result_list)
            start += users_num
- 
+    
+    def my_search(self, query: str) -> List[Record]:
+        result = []
+        for name, record in self.data.items():
+            if query.lower() in name.lower():
+                result.append(record)
+            else:
+                for phone in record.phones:
+                    if query in phone.phone:
+                        result.append(record)
+                        break
+        return result
+    
     def save_contacts(self, file_name):
         with open(file_name, "wb") as f:
                 pickle.dump(self.data, f)
@@ -131,7 +143,3 @@ class AddressBook(UserDict):
             phone_book = None
         return phone_book   
     
-    # def to_dict(self):
-    #     for key, value in self.data.items():
-    #         self.data[key] = [[str(phone) for phone in self.data[key][0]],self.data[key][1]]
-    #     return self.data
