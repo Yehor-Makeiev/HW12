@@ -116,17 +116,19 @@ class AddressBook(UserDict):
            yield "\n".join(result_list)
            start += users_num
     
-    def my_search(self, query: str) -> List[Record]:
+    def my_search(self, query: str):
         result = []
         for name, record in self.data.items():
             if query.lower() in name.lower():
                 result.append(record)
+                print(f"Match found for query '{query}': {name} {record}")
             else:
                 for phone in record.phones:
                     if query in phone.phone:
                         result.append(record)
+                        print(f"Match found for query '{query}':{name} {record}")
                         break
-        return result
+        return f"{result}"
     
     def save_contacts(self, file_name):
         with open(file_name, "wb") as f:
