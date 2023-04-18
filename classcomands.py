@@ -1,5 +1,6 @@
 from collections import  UserDict
 from datetime import datetime
+import pickle
 
 class Field:
     def __init__(self, value):
@@ -114,3 +115,23 @@ class AddressBook(UserDict):
                break
            yield "\n".join(result_list)
            start += users_num
+ 
+    def save_contacts(self, file_name):
+        with open(file_name, "wb") as f:
+                pickle.dump(self.data, f)
+        
+    def load_contacts(self, file_name):
+        try:
+            with open(file_name, "rb") as f:
+                phone_book = pickle.load(f)
+                self.data.clear()
+                self.data.update(phone_book)
+            
+        except (FileNotFoundError, pickle.UnpicklingError):
+            phone_book = None
+        return phone_book   
+    
+    # def to_dict(self):
+    #     for key, value in self.data.items():
+    #         self.data[key] = [[str(phone) for phone in self.data[key][0]],self.data[key][1]]
+    #     return self.data

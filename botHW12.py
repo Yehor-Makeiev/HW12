@@ -1,9 +1,11 @@
 from classcomands import Field, Name, Phone, Record, AddressBook, Birthday
 from datetime import datetime
 import re
+import pickle
 
 
 phone_book = AddressBook()
+FILE_NAME = "adress_book.bin"
 
 def input_error(func):
     def inner(*args):
@@ -114,7 +116,7 @@ def birthday(*args):
     if rec:
         return rec.days_to_birthday(name)
                     
-
+    
 
 def no_command(*args):
     return "Unknown command, try again, or enter 'Help' "
@@ -168,6 +170,7 @@ def command_handler(text: str):
 
 def main():
     print(help())
+    phone_book.load_contacts(FILE_NAME)
 
     while True:
         user_input = input(">>>")
@@ -175,8 +178,9 @@ def main():
         command, data = command_handler(pars)
         print(command(data))
         if command == exit:
+            phone_book.save_contacts(FILE_NAME)
             break
-
+    
 
 if __name__ == "__main__":
     main()
