@@ -121,14 +121,14 @@ class AddressBook(UserDict):
         for name, record in self.data.items():
             if query.lower() in name.lower():
                 result.append(record)
-                print(f"Match found for query '{query}': {name} {record}")
+                print(f" '{query}': {name} {record}")
             else:
                 for phone in record.phones:
                     if query in phone.phone:
                         result.append(record)
-                        print(f"Match found for query '{query}':{name} {record}")
+                        print(f" '{query}':{name} {record}")
                         break
-        return f"{result}"
+        return ""
     
     def save_contacts(self, file_name):
         with open(file_name, "wb") as f:
@@ -144,4 +144,5 @@ class AddressBook(UserDict):
         except (FileNotFoundError, pickle.UnpicklingError):
             phone_book = None
         return phone_book   
+    
     
