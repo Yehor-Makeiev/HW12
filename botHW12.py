@@ -26,10 +26,11 @@ def help(*args):
 2. If you want add name and number - enter: 'add Name number' for example 'add Bill +380997654321'
 3. If you want change number - enter: 'change Existing_Name old_number new_nuber' for exemple 'change Bill +380997654321'
 4. If you want see phone number for name - enter 'phone Existing_Name' for exemple 'phone Bill'
-5. To show all phone book - enter 'show_all'
+5. To show all phone book - enter 'showall'
 6. To stop working - enter 'exit', 'good bye', 'close' 
 7. You can add a birthday for contacts. enter 'bd Name d-m-yyyy for exemple '1-1-1991 or 21-4-2000
-8. Нou can find out how many days are left until the constakt's birthday, enter 'bd <name>' \n"""
+8. Нou can find out how many days are left until the constakt's birthday, enter 'bd <name>' 
+9. You can find any information like nuber or birthday, enter 'find <anything>  \n"""
 
 
 
