@@ -30,7 +30,8 @@ def help(*args):
 6. To stop working - enter 'exit', 'good bye', 'close' 
 7. You can add a birthday for contacts. enter 'bd Name d-m-yyyy for exemple '1-1-1991 or 21-4-2000
 8. Нou can find out how many days are left until the constakt's birthday, enter 'bd <name>' 
-9. You can find any information like nuber or birthday, enter 'find <anything>  \n"""
+9. You can find any information like nuber or birthday, enter 'find <anything> 
+10. you can delite ane number < del Bill +380997654321  \n"""
 
 
 
